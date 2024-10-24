@@ -53,6 +53,12 @@ namespace DemoTests.Pages.Pages
 
             return this;
         }
+        public ProductsListPage AddSecondProductToCart()
+        {
+            secondProductButton.Click();
+
+            return this;
+        }
         public ProductsListPage RemoveFirstProductFromCart()
         {
             firstProductButton.GetText().Equals("Remove");
