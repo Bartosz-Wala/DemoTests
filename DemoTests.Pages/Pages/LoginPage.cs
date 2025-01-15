@@ -8,13 +8,11 @@ namespace DemoTests.Pages.Pages
         private readonly TextInput loginInput;
         private readonly TextInput passwordInput;
         private readonly Button loginButton;
-        private readonly Label errorLoginLabel;
         public LoginPage(IWebDriver driver) : base(driver)
         {
             loginInput = new TextInput(Driver, By.CssSelector("#user-name"));
             passwordInput = new TextInput(Driver, By.CssSelector("#password"));
             loginButton = new Button(Driver, By.CssSelector("#login-button"));
-            errorLoginLabel = new Label(Driver, By.CssSelector("h3[data-test='error']"));
         }
         public ProductsListPage LoginUser()
         {
@@ -31,10 +29,6 @@ namespace DemoTests.Pages.Pages
             loginButton.Click();
 
             return new ProductsListPage(Driver);
-        }
-        public string GetLoginError()
-        {
-            return errorLoginLabel.GetText();
         }
     }
 }

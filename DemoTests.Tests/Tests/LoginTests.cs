@@ -24,7 +24,7 @@ namespace DemoTests.Tests.Tests
                 .Navigate()
                 .LoginDeclerate("", "");
 
-            Assert.IsTrue(loginPage.GetLoginError().Contains("Username is required"));
+            Assert.IsTrue(loginPage.GetError().Contains("Username is required"));
         }
         [Test]
         public void EmptyLoginDataTest()
@@ -35,7 +35,7 @@ namespace DemoTests.Tests.Tests
                 .Navigate()
                 .LoginDeclerate("", "");
 
-            Assert.IsTrue(loginPage.GetLoginError().Contains("Username is required"));
+            Assert.IsTrue(loginPage.GetError().Contains("Username is required"));
         }
         [Test]
         public void EmptyPasswordDataTest()
@@ -46,7 +46,7 @@ namespace DemoTests.Tests.Tests
                 .Navigate()
                 .LoginDeclerate("standard_user", "");
 
-            Assert.IsTrue(loginPage.GetLoginError().Contains("Password is required"));
+            Assert.IsTrue(loginPage.GetError().Contains("Password is required"));
         }
         [Test]
         public void InvalidLoginPasswordTest()
@@ -57,7 +57,7 @@ namespace DemoTests.Tests.Tests
                 .Navigate()
                 .LoginDeclerate("standard_user", "test");
 
-            Assert.IsTrue(loginPage.GetLoginError().Contains("Username and password do not match any user in this service"));
+            Assert.IsTrue(loginPage.GetError().Contains("Username and password do not match any user in this service"));
         }
         [Test]
         public void InvalidLoginInputTest()
@@ -68,7 +68,7 @@ namespace DemoTests.Tests.Tests
                 .Navigate()
                 .LoginDeclerate("test", "secret_sauce");
 
-            Assert.IsTrue(loginPage.GetLoginError().Contains("Username and password do not match any user in this service"));
+            Assert.IsTrue(loginPage.GetError().Contains("Username and password do not match any user in this service"));
         }
         [Test]
         public void InvalidLoginTest()
@@ -79,7 +79,7 @@ namespace DemoTests.Tests.Tests
                 .Navigate()
                 .LoginDeclerate("test", "test");
 
-            Assert.IsTrue(loginPage.GetLoginError().Contains("Username and password do not match any user in this service"));
+            Assert.IsTrue(loginPage.GetError().Contains("Username and password do not match any user in this service"));
         }
     }
 }
